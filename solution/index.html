@@ -1,0 +1,44 @@
+<html ng-app="Movies">
+	<head>
+		<link data-require="ng-table@*" data-semver="0.3.1" rel="stylesheet" href="http://bazalt-cms.com/assets/ng-table/0.3.1/ng-table.css" />
+		
+		<link rel="stylesheet" href="dist/css/bootstrap.css">
+		
+		
+	</head>
+	<body ng-controller="headerController">
+		
+		<div class="clearfix"></div>
+		<div loading-container="tableParams.settings().$loading" class="table-responsive" style="margin-top: 30px;">
+		<h2 class="text-center">Videos Information</h2>
+		  <table ng-table="tableParams" show-filter="true" class="table table-bordered">
+			<tbody>
+			  <tr ng-repeat="d in $data">
+				<td data-title="'id'" ng-bind-html="d.id" sortable="'id'">
+					
+					</td>
+				<td data-title="'Title'" ng-bind-html="d.title" sortable="'title'" filter="{'title': 'text'}">
+						
+					</td>
+				<td data-title="'Description'">
+						<p ng-bind-html="d.shortDescription"></p>
+				</td>
+				<td data-title="'Logo'" >
+						<img src="{{d.links.logoImage}} " />
+				</td>
+					
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+		
+	
+	
+		
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js" type="text/javascript"></script>
+	<script src="http://bazalt-cms.com/assets/ng-table/0.3.1/ng-table.js"></script>
+	
+	<script src="dist/js/angular-sanitize.js" type="text/javascript"></script>
+	<script src="dist/js/Controller.js" type="text/javascript"></script>
+</html>
